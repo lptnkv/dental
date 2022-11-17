@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Наши стоматологи</title>
+</head>
+<body>
+<h1>Наши стоматологи</h1>
+<br>
+<table>
+    <tr th:each="doctor:${doctorList}">
+        <td th:utext="${doctor.lastName}">...</td>
+        <td th:utext="${doctor.firstName}">...</td>
+        <td th:utext="${doctor.fatherName}">...</td>
+        <td th:utext="${doctor.specialty}">...</td>
+        <td th:utext="${doctor.description}">...</td>
+    </tr>
+</table>
+
+</body>
+</html>

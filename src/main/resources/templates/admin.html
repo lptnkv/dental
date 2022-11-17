@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Панель администратора</title>
+  <link rel="stylesheet" th:href="@{/special.css}" href="static/style.css">
+</head>
+<body>
+<h1>Записи на прием</h1>
+<br>
+<table style="width: 40vw;">
+  <tr>
+    <th>Дата</th>
+    <th>Имя клиента</th>
+    <th>Доктор</th>
+    <th>Дополнительно</th>
+    <th>Номер телефона</th>
+  </tr>
+  <tr th:each="app, iter:${appointments}">
+    <td th:utext="${app.date}">...</td>
+    <td th:utext="${app.customer}">...</td>
+    <td th:utext="${doctors[iter.index].firstName + ' ' + doctors[iter.index].lastName}">...</td>
+    <td th:utext="${app.notes}">...</td>
+    <td th:utext="${app.phoneNumber}">...</td>
+  </tr>
+</table>
+
+</body>
+</html>

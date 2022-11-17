@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Новая запись</title>
+</head>
+<body>
+<h1>Запись на прием в Стоматологию</h1>
+<p th:text="${error}">...</p>
+<form action="#" th:action="@{create}" th:object="${UserForm}" method="post">
+    <h2>Детали записи</h2>
+    <p>Имя<input type="text" th:field="*{customer}" required/></p>
+    <p>Дата <input type="date" th:field="*{date}" required/></p>
+    <p>Врач <select name="doctorselect" th:field="*{doctor_id}" datatype="int">
+        <option th:each="doctor: ${doctors}"
+                th:value="${doctor.id}"
+                th:utext="|${doctor.lastName} ${doctor.firstName} ${doctor.specialty}|"></option>
+    </select></p>
+    <p>Примечания <input type="text" th:field="*{notes}"/></p>
+    <p>Телефон <input type="text" th:field="*{phoneNumber}" required></p>
+    <p><input type="submit" value="Записаться"/></p>
+
+</form>
+</body>
+</html>

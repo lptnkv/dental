@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Стоматология</title>
+</head>
+<body>
+<nav>
+    <div sec:authorize="isAuthenticated()">
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Logout">
+        </form>
+    </div>
+    </div>
+
+    <div sec:authorize="isAnonymous()">
+        <a href="/login">
+            Вход
+        </a>
+    </div>
+</nav>
+<h1>Стоматологическая клиника</h1>
+<p>Добро пожаловать на сайт стоматологической клиники</p>
+<p>Здесь вы можете записаться на прием к одному из наших докторов. Для этого нужно авторизоваться</p>
+<div sec:authorize="isAuthenticated()">
+    <a href="/create">
+        Записаться
+    </a>
+</div>
+<a href="/doctors">
+    Список докторов
+</a>
+
+<footer>
+    <p>Адрес клиники: Москва, Проспект Вернадского 86ст1, офис 1118</p>
+    <p>Номер телефона: +7(950)475-00-00</p>
+</footer>
+
+</body>
+</html>
